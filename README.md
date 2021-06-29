@@ -1,5 +1,7 @@
 # Flyway tutorial
 
+![](images/Flyway_logo.svg.png)
+
 ## Set up database
 For this exercise we are going to work with a database called `tutorial`.
 
@@ -19,7 +21,7 @@ TABLE_CATALOG|TABLE_SCHEMA|TABLE_NAME|TABLE_TYPE|
 ## Setting up flyway connection
 
 Create a file called flyway.conf with this content
-```
+``` java-properties
 flyway.url=jdbc:sqlserver://172.17.0.2:1433;databaseName=tutorial
 flyway.user=sa
 flyway.password=RHBr0cks!
@@ -45,7 +47,7 @@ We instruct flyway to pickup the configuration file by defining option `-configF
 Then we create our first change in the database. We are going to store all of the changes in a directory called `sql/`
 
 We create a file in the said folder and we call it `sql/V1__Create_person_table.sql`
-```sql
+``` sql
 create table PERSON (
     ID int not null,
     NAME varchar(100) not null
@@ -99,7 +101,7 @@ The last line says that changes version 1 has been migrated successfully.
 
 Let's check out what happen to the content of the tutorial database:
 
-```sql
+``` sql
 use tutorial;
 
 SELECT *
