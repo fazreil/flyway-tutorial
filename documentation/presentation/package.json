@@ -1,0 +1,21 @@
+{
+  "name": "flyway-tutorial",
+  "version": "1.0.0",
+  "description": "Flyway tutorial slides",
+  "main": "index.js",
+  "scripts": {
+    "start": "mdx-deck deck.mdx",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "presentation",
+    "flyway",
+    "mdx",
+    "markdown"
+  ],
+  "author": "Fazreil Amreen",
+  "license": "ISC",
+  "dependencies": {
+    "mdx-deck": "^4.1.1"
+  }
+}
