@@ -318,3 +318,51 @@ Flyway Community Edition 7.10.0 by Redgate
 Database: jdbc:sqlserver://172.17.0.2:1433;maxResultBuffer=-1;sendTemporalDataTypesAsStringForBulkCopy=true;delayLoadingLobs=true;useFmtOnly=false;useBulkCopyForBatchInsert=false;cancelQueryTimeout=-1;sslProtocol=TLS;jaasConfigurationName=SQLJDBCDriver;statementPoolingCacheSize=0;serverPreparedStatementDiscardThreshold=10;enablePrepareOnFirstPreparedStatementCall=false;fips=false;socketTimeout=0;authentication=NotSpecified;authenticationScheme=nativeAuthentication;xopenStates=false;sendTimeAsDatetime=true;trustStoreType=JKS;trustServerCertificate=false;TransparentNetworkIPResolution=true;serverNameAsACE=false;sendStringParametersAsUnicode=true;selectMethod=direct;responseBuffering=adaptive;queryTimeout=-1;packetSize=8000;multiSubnetFailover=false;loginTimeout=15;lockTimeout=-1;lastUpdateCount=true;encrypt=false;disableStatementPooling=true;databaseName=tutorial;columnEncryptionSetting=Disabled;applicationName=Microsoft JDBC Driver for SQL Server;applicationIntent=readwrite; (Microsoft SQL Server 14.0)
 Successfully validated 2 migrations (execution time 00:00.038s)
 ```
+
+# Chapter 3
+
+## Dealing with an existing database
+
+Usually we deal with an existing database where it has been filled with structures and data. We do not have the luxury of redesigning the data nor start new and ditching the current database.
+
+For this scenario, we are going to take the current database and `flyway baseline` it.
+
+We are going to use another database called Northwind. Northwind database is having a complete set of table meant for its application.
+
+To switch to Northwind, we need to have a new config file that will instruct Flyway to connect to Northwind database:
+
+``` java-properties
+flyway.url=jdbc:sqlserver://172.17.0.2:1433;databaseName=Northwind
+flyway.user=sa
+flyway.password=RHBr0cks!
+flyway.locations=northwind
+```
+
+The new configuration will instruct flyway to connect to a new connection url and  the flyway locations will be pointing to new directory called northwind. Flyway will scan northwind for migration scripts.
+
+With the new configuration file defined, let's proceed with the baselining exercise:
+
+```
+~/checkouts/flyway-tutorial >>> flyway -configFiles=northwind.conf baseline                                                                                                                                       
+Flyway Community Edition 7.10.0 by Redgate
+Database: jdbc:sqlserver://172.17.0.2:1433;maxResultBuffer=-1;sendTemporalDataTypesAsStringForBulkCopy=true;delayLoadingLobs=true;useFmtOnly=false;useBulkCopyForBatchInsert=false;cancelQueryTimeout=-1;sslProtocol=TLS;jaasConfigurationName=SQLJDBCDriver;statementPoolingCacheSize=0;serverPreparedStatementDiscardThreshold=10;enablePrepareOnFirstPreparedStatementCall=false;fips=false;socketTimeout=0;authentication=NotSpecified;authenticationScheme=nativeAuthentication;xopenStates=false;sendTimeAsDatetime=true;trustStoreType=JKS;trustServerCertificate=false;TransparentNetworkIPResolution=true;serverNameAsACE=false;sendStringParametersAsUnicode=true;selectMethod=direct;responseBuffering=adaptive;queryTimeout=-1;packetSize=8000;multiSubnetFailover=false;loginTimeout=15;lockTimeout=-1;lastUpdateCount=true;encrypt=false;disableStatementPooling=true;databaseName=Northwind;columnEncryptionSetting=Disabled;applicationName=Microsoft JDBC Driver for SQL Server;applicationIntent=readwrite; (Microsoft SQL Server 14.0)
+Creating Schema History table [Northwind].[dbo].[flyway_schema_history] with baseline ...
+Successfully baselined schema with version: 1
+```
+
+> Take note that baselining will consume a version, therefore version 1 of the migration will be baseline.
+
+With that baseline, flyway info will tell us that version 1 was recorded as the baselining activity:
+
+```
+~/checkouts/flyway-tutorial >>> flyway -configFiles=northwind.conf info                                                                                                                                        [1]
+Flyway Community Edition 7.10.0 by Redgate
+Database: jdbc:sqlserver://172.17.0.2:1433;maxResultBuffer=-1;sendTemporalDataTypesAsStringForBulkCopy=true;delayLoadingLobs=true;useFmtOnly=false;useBulkCopyForBatchInsert=false;cancelQueryTimeout=-1;sslProtocol=TLS;jaasConfigurationName=SQLJDBCDriver;statementPoolingCacheSize=0;serverPreparedStatementDiscardThreshold=10;enablePrepareOnFirstPreparedStatementCall=false;fips=false;socketTimeout=0;authentication=NotSpecified;authenticationScheme=nativeAuthentication;xopenStates=false;sendTimeAsDatetime=true;trustStoreType=JKS;trustServerCertificate=false;TransparentNetworkIPResolution=true;serverNameAsACE=false;sendStringParametersAsUnicode=true;selectMethod=direct;responseBuffering=adaptive;queryTimeout=-1;packetSize=8000;multiSubnetFailover=false;loginTimeout=15;lockTimeout=-1;lastUpdateCount=true;encrypt=false;disableStatementPooling=true;databaseName=Northwind;columnEncryptionSetting=Disabled;applicationName=Microsoft JDBC Driver for SQL Server;applicationIntent=readwrite; (Microsoft SQL Server 14.0)
+Schema version: 1
+
++----------+---------+-----------------------+----------+---------------------+----------+
+| Category | Version | Description           | Type     | Installed On        | State    |
++----------+---------+-----------------------+----------+---------------------+----------+
+|          | 1       | << Flyway Baseline >> | BASELINE | 2021-06-30 04:42:59 | Baseline |
++----------+---------+-----------------------+----------+---------------------+----------+
+```
