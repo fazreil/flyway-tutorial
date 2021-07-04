@@ -1,12 +1,35 @@
 import { themes } from 'mdx-deck';
+import Workflow from './component/workflow';
 import flyway_logo from '../../images/Flyway_logo.svg.png';
 import gogs from '../../images/gogs.png';
 import jenkins_flyway from '../../images/jenkins-dcp-be-flyway-deployment.png'
-export const theme = themes.book;
+export const theme = themes.swiss;
+
+<Header>
+  Flyway tutorial prepared
+</Header>
+
+<Footer>
+  Prepared by RHB Digital 2021
+</Footer>
 
 # Flyway
 
 <img src={flyway_logo} width="50%" height="50%"/>
+
+---
+
+# Introduction
+ - What is Flyway
+ - Who uses flyway
+ - Deployment workflow
+ - How do we do in non-prod now
+
+---
+
+## What is Flyway
+
+Version control for your database
 
 ---
 
@@ -18,6 +41,40 @@ source: https://stackshare.io/flyway
 - https://www.insoft.lt/en
 - https://www.doubleslash.de/en/company/company-portrait/
 - 40 other companies identified by stackshare.io
+
+---
+
+## Deployment workflow
+<Split>
+<Workflow src="
+[<start> Current Workflow]Current Workflow--[All DCP DB maintenance job]
+[All DCP DB maintenance job]->[Stop replication]
+[Stop replication]->[Backup Kony Fabric databases]
+[Backup Kony Fabric databases]->[BE BO backup script]
+[BE BO backup script]->[<reference> Manually Deploy BE BO SQL]
+[<actor>DBA]->[<reference> Manually Deploy BE BO SQL]
+[<reference> Manually Deploy BE BO SQL]->[Replication between prod database]
+[Replication between prod database]->[Resume : All DCP DB maintenance job]
+[Resume : All DCP DB maintenance job]->[DBA Delete Kony Fabric databases]
+[DBA Delete Kony Fabric databases]->[Delete temp table]
+[Delete temp table]->[<end>end]"
+/>
+
+<Workflow src="
+[<start> Proposed Workflow]Proposed Workflow--[All DCP DB maintenance job]
+[All DCP DB maintenance job]->[Stop replication]
+[Stop replication]->[Backup Kony Fabric databases]
+[Backup Kony Fabric databases]->[BE BO backup script]
+[BE BO backup script]->[<reference> Automatically Deploy BE BO SQL]
+[<actor>flyway]->[<reference> Automatically Deploy BE BO SQL]
+[<reference> Automatically Deploy BE BO SQL]->[Replication between prod database]
+[Replication between prod database]->[Resume : All DCP DB maintenance job]
+[Resume : All DCP DB maintenance job]->[DBA Delete Kony Fabric databases]
+[DBA Delete Kony Fabric databases]->[Delete temp table]
+[Delete temp table]->[<end>end]"
+/>
+
+</Split>
 
 ---
 
@@ -33,11 +90,15 @@ This way all of our changes in the script is being recorded and versioned. This 
 
 ---
 
+## How do we do in non-prod now
+
 ### GOGS
 
 <img src={gogs}  width="50%" height="50%"/>
 
 ---
+
+## How do we do in non-prod now
 
 ### Managing changes of flyway scripts
 
@@ -48,6 +109,8 @@ ref: http://172.30.81.68:3000/DCP/dcp-be-flyway/pulls
 Each changes are not written directly on the main branch but it is written on separate branch and then will be reviewed by another person before it can be merged into the main branch. This fulfills the maker-checker requirement. This approach also prevent any malicious/erroneous changes to be part of the main branch.
 
 ---
+
+## How do we do in non-prod now
 
 ### Managing secrets
 
@@ -63,11 +126,15 @@ ref: http://172.30.81.70:8080/credentials/
 
 ---
 
+## How do we do in non-prod now
+
 ### Jenkins job
 
 <img src={jenkins_flyway}  width="500" height="500"/>
 
 ---
+
+## How do we do in non-prod now
 
 ### Jenkins pipeline code
 
@@ -104,6 +171,13 @@ Masking supported pattern matches of $username or $password
 ---
 
 # Chapter 1
+
+- Set up database
+- Setting up flyway connection
+- First Change
+- flyway_schema_history
+
+---
 
 ## Set up database
 For this exercise we are going to work with a database called `tutorial`.
@@ -151,6 +225,8 @@ We instruct flyway to pickup the configuration file by defining option `-configF
 ---
 
 ## First Change
+
+### Create PERSON table
 
 Then we create our first change in the database. We are going to store all of the changes in a directory called `sql/`
 
@@ -239,6 +315,7 @@ tutorial     |dbo         |PERSON               |BASE TABLE|
 ---
 
 ## flyway_schema_history
+
 The database shows two new table, PERSON and flyway_schema_history. The PERSON table is intended to be created. flyway_schema_history in the other hand stores the history of flyway execution. The content of the flyway_schema_history shows as below:
 
 ```sql
@@ -292,6 +369,12 @@ Successfully dropped post-schema database level objects (execution time 00:00.03
 ---
 
 # Chapter 2
+
+- Add more content to the Person table
+- Migrate to certain version
+- What if there is a manual change in the table?
+
+---
 
 ## Let's add more content to the Person table
 Let's prepare another sql script to add people into Person table. The name of the file is `sql/V2_Add_people.sql` :
@@ -489,6 +572,10 @@ Successfully validated 2 migrations (execution time 00:00.038s)
 ---
 
 # Chapter 3
+- Dealing with an existing database
+- Make changes to existing database
+
+---
 
 ## Dealing with an existing database
 
