@@ -16,6 +16,8 @@
   "author": "Fazreil Amreen",
   "license": "ISC",
   "dependencies": {
-    "mdx-deck": "^4.1.1"
+    "mdx-deck": "^4.1.1",
+    "fs": "0.0.1-security",
+    "nomnoml": "0.6.1"
   }
 }
