@@ -47,8 +47,8 @@ source: https://stackshare.io/flyway
 ## Deployment workflow
 <Split>
 <Workflow src="
-[<start> Current Workflow]Current Workflow--[All DCP DB maintenance job]
-[All DCP DB maintenance job]->[Stop replication]
+[<start> Current Workflow]Current Workflow--[Stop all DCP DB maintenance job]
+[Stop all DCP DB maintenance job]->[Stop replication]
 [Stop replication]->[Backup Kony Fabric databases]
 [Backup Kony Fabric databases]->[BE BO backup script]
 [BE BO backup script]->[<reference> Manually Deploy BE BO SQL]
@@ -61,8 +61,8 @@ source: https://stackshare.io/flyway
 />
 
 <Workflow src="
-[<start> Proposed Workflow]Proposed Workflow--[All DCP DB maintenance job]
-[All DCP DB maintenance job]->[Stop replication]
+[<start> Proposed Workflow]Proposed Workflow--[Stop all DCP DB maintenance job]
+[Stop all DCP DB maintenance job]->[Stop replication]
 [Stop replication]->[Backup Kony Fabric databases]
 [Backup Kony Fabric databases]->[BE BO backup script]
 [BE BO backup script]->[<reference> Automatically Deploy BE BO SQL]
