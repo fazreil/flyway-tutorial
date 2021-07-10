@@ -123,7 +123,7 @@ Create a file called flyway.conf with this content
 ``` java-properties
 flyway.url=jdbc:sqlserver://172.17.0.2:1433;databaseName=tutorial
 flyway.user=sa
-flyway.password=RHBr0cks!
+flyway.password=RGBr0cks!
 ```
 When we do `flyway -configFiles=flyway.conf info` the information of the database will appear, indicating a successful connection.
 ```
@@ -499,7 +499,7 @@ To switch to Northwind, we need to have a new config file that will instruct Fly
 ``` java-properties
 flyway.url=jdbc:sqlserver://172.17.0.2:1433;databaseName=Northwind
 flyway.user=sa
-flyway.password=RHBr0cks!
+flyway.password=RGBr0cks!
 flyway.locations=northwind
 ```
 
