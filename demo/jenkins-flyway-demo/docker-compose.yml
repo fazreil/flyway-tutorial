@@ -8,6 +8,8 @@ services:
       - ./jenkins-home:/var/jenkins_home
       - ./config:/var/lib/jenkins
       - ./flyway-home/flyway-7.10.0:/opt/flyway/
+    links:
+      - "db:mssqlserver"
     image: jenkins/jenkins:jdk11
   db:
     ports:
