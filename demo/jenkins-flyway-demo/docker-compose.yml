@@ -11,8 +11,6 @@ services:
   db:
     ports:
       - "1433:1433"
-    volumes:
-      - ./mssqlserver:/var/opt/mssql
     image: mcr.microsoft.com/mssql/server:2017-latest
     environment:
       SA_PASSWORD: "RGBr0cks!"
