@@ -7,6 +7,7 @@ services:
     volumes:
       - ./jenkins-home:/var/jenkins_home
       - ./config:/var/lib/jenkins
+      - ./flyway-home/flyway-7.10.0:/opt/flyway/
     image: jenkins/jenkins:jdk11
   db:
     ports:
