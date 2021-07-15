@@ -1,8 +1,19 @@
 <?xml version='1.1' encoding='UTF-8'?>
 <project>
+  <actions/>
   <description></description>
   <keepDependencies>false</keepDependencies>
-  <properties/>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.PasswordParameterDefinition>
+          <name>password</name>
+          <description>password to access mssql server</description>
+          <defaultValue>{AQAAABAAAAAQ/uDsqjx8S3OCwFlD6DfiBxIJb762wVCpUBIi0n4KAck=}</defaultValue>
+        </hudson.model.PasswordParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
   <scm class="hudson.scm.NullSCM"/>
   <canRoam>true</canRoam>
   <disabled>false</disabled>
@@ -12,7 +23,9 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>/opt/flyway/flyway --version</command>
+      <command>#!/bin/bash +x
+
+/opt/flyway/flyway info -url=&quot;jdbc:sqlserver://mssqlserver:1433&quot; -configFiles=flyway.conf -password=${password}</command>
       <configuredLocalRules/>
     </hudson.tasks.Shell>
   </builders>
