@@ -1,2 +1,3 @@
 documentation/presentation/node_modules/
 demo/jenkins-flyway-demo/jenkins-home/logs
+demo/jenkins-flyway-demo/jenkins-home/copy_reference_file.log
