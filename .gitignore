@@ -4,3 +4,7 @@ demo/jenkins-flyway-demo/jenkins-home/copy_reference_file.log
 demo/jenkins-flyway-demo/jenkins-home/queue.xml.bak
 demo/jenkins-flyway-demo/jenkins-home/jobs/flyway-test/builds
 demo/jenkins-flyway-demo/jenkins-home/jobs/flyway-test/nextBuildNumber
+demo/jenkins-flyway-demo/jenkins-home/jobs/flyway-test/builds/permalinks
+demo/jenkins-flyway-demo/jenkins-home/queue.xml
+demo/jenkins-flyway-demo/jenkins-home/queue.xml.bak
+demo/jenkins-flyway-demo/jenkins-home/.java/fonts/11.0.11
