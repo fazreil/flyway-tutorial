@@ -11,6 +11,19 @@
           <description>password to access mssql server</description>
           <defaultValue>{AQAAABAAAAAQ/uDsqjx8S3OCwFlD6DfiBxIJb762wVCpUBIi0n4KAck=}</defaultValue>
         </hudson.model.PasswordParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>command</name>
+          <description>Command to pass to flyway</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>info</string>
+              <string>migrate</string>
+              <string>validate</string>
+              <string>repair</string>
+              <string>clean</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
   </properties>
@@ -25,7 +38,7 @@
     <hudson.tasks.Shell>
       <command>#!/bin/bash +x
 
-/opt/flyway/flyway info -url=&quot;jdbc:sqlserver://mssqlserver:1433&quot; -configFiles=flyway.conf -password=${password}</command>
+/opt/flyway/flyway ${command} -url=&quot;jdbc:sqlserver://mssqlserver:1433&quot; -configFiles=flyway.conf -password=${password}</command>
       <configuredLocalRules/>
     </hudson.tasks.Shell>
   </builders>
