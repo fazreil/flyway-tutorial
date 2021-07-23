@@ -8,3 +8,4 @@ demo/jenkins-flyway-demo/jenkins-home/jobs/flyway-test/builds/permalinks
 demo/jenkins-flyway-demo/jenkins-home/queue.xml
 demo/jenkins-flyway-demo/jenkins-home/queue.xml.bak
 demo/jenkins-flyway-demo/jenkins-home/.java/fonts/11.0.11
+demo/jenkins-flyway-demo/jenkins-home/jobs/flyway-extract-archive/builds

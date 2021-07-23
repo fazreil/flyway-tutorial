@@ -10,6 +10,7 @@ services:
       - ./flyway-home/flyway-7.10.0:/opt/flyway/
     links:
       - "db:mssqlserver"
+      - "web:apacheserver"
     image: jenkins/jenkins:jdk11
   db:
     ports:
@@ -18,3 +19,9 @@ services:
     environment:
       SA_PASSWORD: "RGBr0cks!"
       ACCEPT_EULA: "Y"
+  web:
+    ports:
+      - "18080:80"
+    volumes:
+      - ./apache-workdir:/usr/local/apache2/htdocs/
+    image: httpd:2.4
