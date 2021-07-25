@@ -1,0 +1,7 @@
+Started by user [8mha:////4OQZ5QcWu0tj9gZLc4pHPVVBUXi/1d7RzeS3KkHSu6RiAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/flyway-db-pcu
+[flyway-db-pcu] $ /bin/bash +x /tmp/jenkins9780670381051880935.sh
+ERROR: Unable to load config file: /var/jenkins_home/workspace/flyway-db-pcu/flyway.conf
+Build step 'Execute shell' marked build as failure
+Finished: FAILURE

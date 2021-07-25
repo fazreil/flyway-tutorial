@@ -1,0 +1,15 @@
+Started by user [8mha:////4OQZ5QcWu0tj9gZLc4pHPVVBUXi/1d7RzeS3KkHSu6RiAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/flyway-db-pcu
+[flyway-db-pcu] $ /bin/bash +x /tmp/jenkins18042211975145580213.sh
+Flyway Community Edition 7.10.0 by Redgate
+Database: jdbc:sqlserver://mssqlserver:1433;maxResultBuffer=-1;sendTemporalDataTypesAsStringForBulkCopy=true;delayLoadingLobs=true;useFmtOnly=false;useBulkCopyForBatchInsert=false;cancelQueryTimeout=-1;sslProtocol=TLS;jaasConfigurationName=SQLJDBCDriver;statementPoolingCacheSize=0;serverPreparedStatementDiscardThreshold=10;enablePrepareOnFirstPreparedStatementCall=false;fips=false;socketTimeout=0;authentication=NotSpecified;authenticationScheme=nativeAuthentication;xopenStates=false;sendTimeAsDatetime=true;trustStoreType=JKS;trustServerCertificate=false;TransparentNetworkIPResolution=true;serverNameAsACE=false;sendStringParametersAsUnicode=true;selectMethod=direct;responseBuffering=adaptive;queryTimeout=-1;packetSize=8000;multiSubnetFailover=false;loginTimeout=15;lockTimeout=-1;lastUpdateCount=true;encrypt=false;disableStatementPooling=true;columnEncryptionSetting=Disabled;applicationName=Microsoft JDBC Driver for SQL Server;applicationIntent=readwrite; (Microsoft SQL Server 14.0)
+Schema version: << Empty Schema >>
+
++----------+---------+-------------+------+--------------+-------+
+| Category | Version | Description | Type | Installed On | State |
++----------+---------+-------------+------+--------------+-------+
+| No migrations found                                            |
++----------+---------+-------------+------+--------------+-------+
+
+Finished: SUCCESS
