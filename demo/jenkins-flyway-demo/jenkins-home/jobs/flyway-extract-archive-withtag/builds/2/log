@@ -1,0 +1,29 @@
+Started by user [8mha:////4OQZ5QcWu0tj9gZLc4pHPVVBUXi/1d7RzeS3KkHSu6RiAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/flyway-extract-archive-withtag
+[flyway-extract-archive-withtag] $ /bin/sh -xe /tmp/jenkins14603358766899500544.sh
++ curl http://apacheserver:80/mbk/1.0.0/migration-scripts.zip
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   567  100   567    0     0  47250      0 --:--:-- --:--:-- --:--:-- 51545
++ cd sql
++ unzip -o ../migration-scripts.zip
+Archive:  ../migration-scripts.zip
+  inflating: V1__Create_person_table.sql  
+  inflating: V2__Add_people.sql      
+[flyway-extract-archive-withtag] $ /bin/bash +x /tmp/jenkins8434189100735187345.sh
+Flyway Community Edition 7.10.0 by Redgate
+Database: jdbc:sqlserver://mssqlserver:1433;maxResultBuffer=-1;sendTemporalDataTypesAsStringForBulkCopy=true;delayLoadingLobs=true;useFmtOnly=false;useBulkCopyForBatchInsert=false;cancelQueryTimeout=-1;sslProtocol=TLS;jaasConfigurationName=SQLJDBCDriver;statementPoolingCacheSize=0;serverPreparedStatementDiscardThreshold=10;enablePrepareOnFirstPreparedStatementCall=false;fips=false;socketTimeout=0;authentication=NotSpecified;authenticationScheme=nativeAuthentication;xopenStates=false;sendTimeAsDatetime=true;trustStoreType=JKS;trustServerCertificate=false;TransparentNetworkIPResolution=true;serverNameAsACE=false;sendStringParametersAsUnicode=true;selectMethod=direct;responseBuffering=adaptive;queryTimeout=-1;packetSize=8000;multiSubnetFailover=false;loginTimeout=15;lockTimeout=-1;lastUpdateCount=true;encrypt=false;disableStatementPooling=true;columnEncryptionSetting=Disabled;applicationName=Microsoft JDBC Driver for SQL Server;applicationIntent=readwrite; (Microsoft SQL Server 14.0)
+Schema version: 2
+
++-----------+---------+---------------------+------+---------------------+---------+
+| Category  | Version | Description         | Type | Installed On        | State   |
++-----------+---------+---------------------+------+---------------------+---------+
+| Versioned | 1       | Create person table | SQL  | 2021-07-25 07:58:30 | Success |
+| Versioned | 2       | Add people          | SQL  | 2021-07-25 07:58:31 | Success |
++-----------+---------+---------------------+------+---------------------+---------+
+
+[flyway-extract-archive-withtag] $ /bin/sh -xe /tmp/jenkins14754662717064968742.sh
++ rm -rf sql
++ mkdir sql
+Finished: SUCCESS

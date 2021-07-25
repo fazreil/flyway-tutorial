@@ -1,0 +1,12 @@
+Started by user [8mha:////4OQZ5QcWu0tj9gZLc4pHPVVBUXi/1d7RzeS3KkHSu6RiAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/flyway-extract-archive-withtag
+[flyway-extract-archive-withtag] $ /bin/sh -xe /tmp/jenkins9652845959657597653.sh
++ curl http://apacheserver:80/mbk/1.0.0/migration-scripts.zip
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   567  100   567    0     0  70875      0 --:--:-- --:--:-- --:--:-- 70875
++ cd sql
+/tmp/jenkins9652845959657597653.sh: 3: cd: can't cd to sql
+Build step 'Execute shell' marked build as failure
+Finished: FAILURE

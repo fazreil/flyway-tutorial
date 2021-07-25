@@ -1,0 +1,60 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<build>
+  <actions>
+    <hudson.model.ParametersAction>
+      <safeParameters class="sorted-set"/>
+      <parameters>
+        <hudson.model.PasswordParameterValue>
+          <name>passwordpcu</name>
+          <description>password to access mssql server (PCU)</description>
+          <value>{AQAAABAAAAAQgUcH+YoveqVaBpcDTIkPi7zpESDiwrj9k2IpVKn08Xw=}</value>
+        </hudson.model.PasswordParameterValue>
+        <hudson.model.PasswordParameterValue>
+          <name>passworddb</name>
+          <description>password to access mssql server (DB team)</description>
+          <value>{AQAAABAAAAAQ/iUFYBhNk2sFOo0PXik1uXjaRLZw4lUzMYk0QLyHsMg=}</value>
+        </hudson.model.PasswordParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>command</name>
+          <description>Command to pass to flyway</description>
+          <value>info</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>tagname</name>
+          <description>Deployment Tag Name</description>
+          <value>1.0.0</value>
+        </hudson.model.StringParameterValue>
+      </parameters>
+      <parameterDefinitionNames>
+        <string>passwordpcu</string>
+        <string>passworddb</string>
+        <string>command</string>
+        <string>tagname</string>
+      </parameterDefinitionNames>
+    </hudson.model.ParametersAction>
+    <hudson.model.CauseAction>
+      <causeBag class="linked-hash-map">
+        <entry>
+          <hudson.model.Cause_-UserIdCause>
+            <userId>admin</userId>
+          </hudson.model.Cause_-UserIdCause>
+          <int>1</int>
+        </entry>
+      </causeBag>
+    </hudson.model.CauseAction>
+  </actions>
+  <queueId>14</queueId>
+  <timestamp>1627201289192</timestamp>
+  <startTime>1627201289355</startTime>
+  <result>SUCCESS</result>
+  <duration>5669</duration>
+  <charset>UTF-8</charset>
+  <keepLog>false</keepLog>
+  <builtOn></builtOn>
+  <workspace>/var/jenkins_home/workspace/flyway-extract-archive-withtag</workspace>
+  <hudsonVersion>2.302</hudsonVersion>
+  <scm class="hudson.scm.NullChangeLogParser"/>
+  <culprits class="java.util.Collections$UnmodifiableSet">
+    <c class="sorted-set"/>
+  </culprits>
+</build>
