@@ -1,0 +1,57 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<build>
+  <actions>
+    <hudson.model.ParametersAction>
+      <safeParameters class="sorted-set"/>
+      <parameters>
+        <hudson.model.PasswordParameterValue>
+          <name>password</name>
+          <description>password to access mssql server</description>
+          <value>{AQAAABAAAAAQorXcYYfSPORCke9DIiM6xM7qg+WnghVSjNCAtn2M8F4=}</value>
+        </hudson.model.PasswordParameterValue>
+        <hudson.model.PasswordParameterValue>
+          <name>password3</name>
+          <description>password for pcu team</description>
+          <value>{AQAAABAAAAAQT9V/I0VTKKVvowuBWtTM5xprwEH6LH68P/sCyeSIVds=}</value>
+        </hudson.model.PasswordParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>command</name>
+          <description>Flyway command</description>
+          <value>info</value>
+        </hudson.model.StringParameterValue>
+      </parameters>
+      <parameterDefinitionNames>
+        <string>password</string>
+        <string>password3</string>
+        <string>command</string>
+      </parameterDefinitionNames>
+    </hudson.model.ParametersAction>
+    <hudson.model.CauseAction>
+      <causeBag class="linked-hash-map">
+        <entry>
+          <hudson.model.Cause_-UserIdCause>
+            <userId>admin</userId>
+          </hudson.model.Cause_-UserIdCause>
+          <int>1</int>
+        </entry>
+      </causeBag>
+    </hudson.model.CauseAction>
+    <com.cloudbees.plugins.credentials.builds.CredentialsParameterBinder plugin="credentials@2.5">
+      <boundCredentials class="concurrent-hash-map"/>
+    </com.cloudbees.plugins.credentials.builds.CredentialsParameterBinder>
+  </actions>
+  <queueId>5</queueId>
+  <timestamp>1626881792119</timestamp>
+  <startTime>1626881792275</startTime>
+  <result>FAILURE</result>
+  <duration>2392</duration>
+  <charset>UTF-8</charset>
+  <keepLog>false</keepLog>
+  <builtOn></builtOn>
+  <workspace>/var/jenkins_home/workspace/flyway-db-pcu</workspace>
+  <hudsonVersion>2.302</hudsonVersion>
+  <scm class="hudson.scm.NullChangeLogParser"/>
+  <culprits class="java.util.Collections$UnmodifiableSet">
+    <c class="sorted-set"/>
+  </culprits>
+</build>
