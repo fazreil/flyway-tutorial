@@ -1,0 +1,69 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.PasswordParameterDefinition>
+          <name>passwordpcu</name>
+          <description>password to access mssql server (PCU)</description>
+          <defaultValue>{AQAAABAAAAAQ/uDsqjx8S3OCwFlD6DfiBxIJb762wVCpUBIi0n4KAck=}</defaultValue>
+        </hudson.model.PasswordParameterDefinition>
+        <hudson.model.PasswordParameterDefinition>
+          <name>passworddb</name>
+          <description>password to access mssql server (DB team)</description>
+          <defaultValue>{AQAAABAAAAAQkj0GPIa2kE2YmBWdKQdYPThRJS4ls9C7u+2F7W9oBlA=}</defaultValue>
+        </hudson.model.PasswordParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>command</name>
+          <description>Command to pass to flyway</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>info</string>
+              <string>migrate</string>
+              <string>validate</string>
+              <string>repair</string>
+              <string>clean</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>tagname</name>
+          <description>Deployment Tag Name</description>
+          <defaultValue>1.0.0</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>curl http://apacheserver:80/mbk/${tagname}/migration-scripts.zip &gt; migration-scripts.zip
+cd sql
+unzip -o ../migration-scripts.zip</command>
+      <configuredLocalRules/>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>#!/bin/bash +x
+
+/opt/flyway/flyway ${command} -url=&quot;jdbc:sqlserver://mssqlserver:1433&quot; -configFiles=flyway.conf -password=${passwordpcu}${passworddb}</command>
+      <configuredLocalRules/>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>rm -rf sql
+mkdir sql</command>
+      <configuredLocalRules/>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

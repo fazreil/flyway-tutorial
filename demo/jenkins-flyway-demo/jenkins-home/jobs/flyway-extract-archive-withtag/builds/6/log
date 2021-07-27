@@ -1,0 +1,19 @@
+Started by user [8mha:////4OQZ5QcWu0tj9gZLc4pHPVVBUXi/1d7RzeS3KkHSu6RiAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/flyway-extract-archive-withtag
+[flyway-extract-archive-withtag] $ /bin/sh -xe /tmp/jenkins12936412691487364157.sh
++ curl http://apacheserver:80/mbk/1.0.1/migration-scripts.zip
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   196  100   196    0     0  21777      0 --:--:-- --:--:-- --:--:-- 21777
++ cd sql
++ unzip -o ../migration-scripts.zip
+Archive:  ../migration-scripts.zip
+  End-of-central-directory signature not found.  Either this file is not
+  a zipfile, or it constitutes one disk of a multi-part archive.  In the
+  latter case the central directory and zipfile comment will be found on
+  the last disk(s) of this archive.
+unzip:  cannot find zipfile directory in one of ../migration-scripts.zip or
+        ../migration-scripts.zip.zip, and cannot find ../migration-scripts.zip.ZIP, period.
+Build step 'Execute shell' marked build as failure
+Finished: FAILURE
